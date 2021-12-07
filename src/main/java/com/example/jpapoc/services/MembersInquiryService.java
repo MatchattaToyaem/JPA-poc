@@ -16,7 +16,7 @@ public class MembersInquiryService {
     @Autowired
     private MembersRepository membersRepository;
     public MemberInformationResponse inquiry(){
-        MemberInformation memberInformation = membersRepository.findByName("Jimmy");
+        MemberInformation memberInformation = membersRepository.findByAddressInformation("Accenture");
         Address address = new Address();
         try {
             ObjectMapper objectMapper = new ObjectMapper();
