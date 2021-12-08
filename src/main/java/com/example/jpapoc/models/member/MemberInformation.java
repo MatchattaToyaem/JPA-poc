@@ -1,17 +1,12 @@
 package com.example.jpapoc.models.member;
 
-import com.example.jpapoc.configs.JpaConvertJson;
-import com.example.jpapoc.models.member.Point;
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.example.jpapoc.models.converters.AddressConverter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -25,6 +20,8 @@ public class MemberInformation implements Serializable {
     private String name;
     @Column(name = "date_of_birth")
     private String dateOfBirth;
-    private String address;
+    @Convert(converter = AddressConverter.class)
+    @Column(columnDefinition = "json")
+    private Address address;
 
 }

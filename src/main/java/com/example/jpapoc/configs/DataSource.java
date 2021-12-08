@@ -35,6 +35,7 @@ public class DataSource {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(false);
         vendorAdapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQLDialect");
+        vendorAdapter.setShowSql(true);
         LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
         entityManager.setPackagesToScan("com.example.jpapoc.models");
         entityManager.setJpaVendorAdapter(vendorAdapter);
